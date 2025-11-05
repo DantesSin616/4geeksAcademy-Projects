@@ -1,0 +1,176 @@
+/* Card styles to match the supplied mockup */
+:root {
+  --card-width: 520px;
+  --card-height: 320px;
+  --card-bg: #fff;
+  --page-bg: #0f0f10; /* dark page background */
+  --muted: #666;
+  --accent: #1f7ad6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--page-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  /* Fixed-size postcard: keep shape and avoid shrinking */
+  width: var(--card-width);
+  height: var(--card-height);
+  min-width: var(--card-width);
+  min-height: var(--card-height);
+  flex: 0 0 auto; /* do not shrink or grow */
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 18px 20px;
+  position: relative; /* allow absolute placement of CTA centered across card */
+  padding-bottom: 64px; /* room for centered button */
+  display: flex;
+  gap: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  max-width: none; /* keep fixed width */
+}
+
+.card__left {
+  flex: 1;
+  min-width: 240px;
+}
+
+.card__right {
+  width: 220px;
+  position: relative;
+}
+
+.card__title {
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  margin: 6px 0 14px 0;
+  font-size: 1.4rem;
+  color: #111;
+}
+
+.card__text {
+  margin: 0 0 12px 0;
+  color: #222;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.card__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+}
+
+.btn {
+  display: inline-block;
+  background: #dcdcdc;
+  border: 1px solid #9b9b9b;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.logo {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.form__input,
+.form__textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #cfcfcf;
+  padding: 6px 8px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--muted);
+}
+
+.form__textarea {
+  resize: none;
+  height: 60px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 560px) {
+  /* Preserve card shape on small screens; page will scroll if viewport is smaller than the fixed card */
+  .card__right {
+    width: 220px;
+    order: 2;
+  }
+
+  .card__left {
+    order: 1;
+  }
+
+  .logo {
+    position: relative;
+    margin-left: auto;
+  }
+
+  /* keep CTA positioned consistently */
+  .card__cta {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+  }
+}

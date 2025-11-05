@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Postcard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page" role="main">
+      <div class="card">
+        <div class="card__left">
+          <h1 class="card__title">My Postcard</h1>
+
+          <p class="card__text">Look how awesome! This is a postcard that I created using HTML5 and CSS3 during my 4Geeks Academy Course!</p>
+
+          <p class="card__text">This is so cool, can't wait to start doing more stuff!</p>
+
+          <div class="card__cta">
+            <button class="btn">Send My Postcard</button>
+          </div>
+        </div>
+
+        <div class="card__right">
+          <!-- small logo: place your hex logo at assets/logo.png -->
+          <img src="assets/logo.png" alt="logo" class="logo">
+
+          <form class="form" onsubmit="return false;" aria-label="postcard form">
+            <label class="sr-only" for="name">Name</label>
+            <input id="name" class="form__input" placeholder="Some Name">
+
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" class="form__input" placeholder="Some Email">
+
+            <label class="sr-only" for="comment">Comment</label>
+            <textarea id="comment" class="form__textarea" placeholder="Some comment"></textarea>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
